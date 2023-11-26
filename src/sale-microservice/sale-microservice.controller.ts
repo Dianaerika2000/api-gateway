@@ -6,7 +6,9 @@ import { RolDto } from './rol.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { SigninUserDto } from './dto/signin-user.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Sale-Microservice')
 @Controller('sale-microservice')
 export class SaleMicroserviceController {
   constructor(private readonly saleMicroserviceService: SaleMicroserviceService) {}
@@ -46,17 +48,17 @@ export class SaleMicroserviceController {
     return this.saleMicroserviceService.getVolumen(dateStart, dateEnd);
   }
 
-  @Get('/sales/best-seller')
+  @Post('/sales/best-seller')
   getBestSellersProducts() {
     return this.saleMicroserviceService.getBestSellersProducts();
   }
 
   @Post('/sales/income-per-year')
-  getNewsletterRevenueOverTime(@Query('year') startYear: number) {
+  getNewsletterRevenueOverTime(@Query('startYear') startYear: number) {
     return this.saleMicroserviceService.getNewsletterRevenueOverTime(startYear);
   }
 
-  @Get('/last-sales')
+  @Post('/last-sales')
   getLastSales() {
     return this.saleMicroserviceService.getLastSales();
   }

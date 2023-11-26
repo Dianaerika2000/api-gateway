@@ -2,7 +2,9 @@ import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Put } from '@n
 import { OrderMicroserviceService } from './order-microservice.service';
 import { SupplierDto } from './dto/supplier.dto';
 import { OrderDto } from './dto/order.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Order-Microservice')
 @Controller('order-microservice')
 export class OrderMicroserviceController {
   constructor(private readonly orderMicroserviceService: OrderMicroserviceService) {}

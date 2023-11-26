@@ -110,9 +110,10 @@ export class SaleMicroserviceService {
       };
 
       const response = await axios.post(
-        `${this.configService.get('SALE_MICROSERVICE_URL')}/sales/ingresosyears`,
-        requestBody
+        `${this.configService.get('SALE_MICROSERVICE_URL')}/sales/ingresosyears?year=${startYear}`
       );
+
+      console.log('url', response)
 
       return response.data;
     } catch (error) {
