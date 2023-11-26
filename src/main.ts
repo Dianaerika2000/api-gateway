@@ -14,7 +14,6 @@ async function bootstrap() {
   ));
 
   app.enableCors();
-  await app.listen(3000);
   const config = new DocumentBuilder()
     .setTitle('API Gateway')
     .setDescription('API Gateway para mi aplicación')
