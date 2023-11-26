@@ -43,6 +43,16 @@ export class SaleMicroserviceService {
     }
   }
 
+  async getTotalCustomers() {
+    try {
+      const costumers = await axios.post(`${this.configService.get('SALE_MICROSERVICE_URL')}/customer/total-customers`);
+      
+      return costumers.data;
+    } catch (error) {
+      throw new HttpException(error.response.data, error.response.status); 
+    }
+  }
+
   async getAllSales() {
     try {
       const sales = await axios.get(`${this.configService.get('SALE_MICROSERVICE_URL')}/sales`);

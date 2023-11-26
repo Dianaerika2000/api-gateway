@@ -28,6 +28,11 @@ export class SaleMicroserviceController {
     return this.saleMicroserviceService.createCustomer(customer);
   }
 
+  @Post('customers/total')
+  getTotalCustomers() {
+    return this.saleMicroserviceService.getTotalCustomers();
+  }
+
   @Get('sales')
   getAllSales() {
     return this.saleMicroserviceService.getAllSales();
