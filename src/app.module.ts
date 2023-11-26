@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { OrderMicroserviceModule } from './order-microservice/order-microservice.module';
 import { ConfigModule } from '@nestjs/config';
 import { SaleMicroserviceModule } from './sale-microservice/sale-microservice.module';
+import { InventoryMicroserviceModule } from './inventory-microservice/inventory-microservice.module';
 
 @Module({
   imports: [
@@ -11,7 +12,8 @@ import { SaleMicroserviceModule } from './sale-microservice/sale-microservice.mo
       isGlobal: true,
     }),
     OrderMicroserviceModule,
-    SaleMicroserviceModule
+    SaleMicroserviceModule,
+    InventoryMicroserviceModule
   ],
   controllers: [AppController],
   providers: [AppService],
