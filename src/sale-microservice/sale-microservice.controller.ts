@@ -63,6 +63,11 @@ export class SaleMicroserviceController {
     return this.saleMicroserviceService.getLastSales();
   }
 
+  @Post('/total-revenue')
+  getTotalRevenue() {
+    return this.saleMicroserviceService.getTotalRevenue();
+  }
+
   @Get('roles')
   async getRoles() {
     return this.saleMicroserviceService.getRoles();

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
 import { OrderMicroserviceService } from './order-microservice.service';
 import { SupplierDto } from './dto/supplier.dto';
 import { OrderDto } from './dto/order.dto';
@@ -27,6 +27,11 @@ export class OrderMicroserviceController {
   @Patch('suppliers/:id')
   updateSupplier(@Param('id', ParseIntPipe) id: number, @Body() supplier: SupplierDto) {
     return this.orderMicroserviceService.updateSupplier(id, supplier);
+  }
+
+  @Delete('suppliers/:id')
+  deleteSupplier(@Param('id', ParseIntPipe) id: number) {
+    return this.orderMicroserviceService.deleteSupplier(id);
   }
 
   @Get('orders')
