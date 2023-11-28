@@ -151,6 +151,16 @@ export class SaleMicroserviceService {
     }
   }
 
+  async getRelatedProducts(code: string) {
+    try {
+      const sales = await axios.get(`${this.configService.get('SALE_MICROSERVICE_URL')}/sales/related/${code}`);
+      
+      return sales.data;
+    } catch (error) {
+      throw new HttpException(error.response.data, error.response.status); 
+    }
+  }
+
   async getRoles() {
     try {
       const roles = await axios.get(`${this.configService.get('SALE_MICROSERVICE_URL')}/rol`);

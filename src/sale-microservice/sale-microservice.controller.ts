@@ -73,6 +73,11 @@ export class SaleMicroserviceController {
     return this.saleMicroserviceService.getTotalRevenue();
   }
 
+  @Get('sales/related-products/:code')
+  getRelatedProducts(@Param('code') code: string) {
+    return this.saleMicroserviceService.getRelatedProducts(code);
+  }
+
   @Get('roles')
   async getRoles() {
     return this.saleMicroserviceService.getRoles();
